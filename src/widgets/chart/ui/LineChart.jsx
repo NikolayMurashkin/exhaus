@@ -52,8 +52,6 @@ export const LineChart = ({ parsedData }) => {
 		setDates(datesArr);
 		setValues(valuesArr);
 	}, []);
-	// console.log(dates);
-	// console.log(values);
 
 	const data = {
 		// labels: ['Mon', 'Tue', 'Wed'],
