@@ -14,7 +14,7 @@ function App() {
 		let parsedData = [];
 		const start = Date.now();
 		Papa.RemoteChunkSize = 1000000;
-		Papa.parse('../server/data.csv', {
+		Papa.parse('/server/data.csv', {
 			download: true,
 			chunk: (result) => {
 				parsedData = parsedData.concat(...[result.data]);
