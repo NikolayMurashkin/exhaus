@@ -1,0 +1,33 @@
+.item {
+	background: #fafafa;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	padding: 7px 10px;
+}
+
+.text {
+	font-weight: 375;
+	font-size: 13px;
+	line-height: 15px;
+	color: #262626;
+	flex: 1 0 auto;
+}
+
+.icon {
+	padding: 2px 5px;
+	background: #f4f4f4;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 375;
+	font-size: 13px;
+	line-height: 15px;
+	color: #000000;
+
+	&:not(:last-child) {
+		margin-right: 7px;
+	}
+}

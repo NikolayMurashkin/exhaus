@@ -6,6 +6,7 @@ import { setDetails } from '../app/slices/exhausterDetailsSlice';
 import { parseCsv } from '../helpers/parseCsv';
 import App from '../App';
 import styles from './Root.module.scss';
+import { Header } from '../entities/header/Header';
 
 export const Root = () => {
 	const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export const Root = () => {
 	}, []);
 	return (
 		<div className={styles.root}>
+			<Header />
 			<Outlet />
 		</div>
 	);

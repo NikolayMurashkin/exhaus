@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import styles from '../model/Exhauster.module.scss';
+import { ArrowRightIcon } from '../../../../public/icons/ArrowRightIcon';
+import { Scheme } from '../../../../public/icons/Scheme';
+import { DropdownItem } from '../../../shared/ui/dropdownItem/DropdownItem';
 
 export const Exhauster = ({ id }) => {
 	const navigate = useNavigate();
@@ -30,24 +33,24 @@ export const Exhauster = ({ id }) => {
 	};
 
 	const details = useSelector((state) => state.exhauster);
-	console.log(details);
 	return (
 		<section className={styles.exhauster}>
 			<div className={styles.title}>
-				<span className={styles.name}>Эксгаустер У-171</span>
+				<span className={styles.circle}></span>
+				<h4 className={styles.name}>Эксгаустер У-171</h4>
 				<button
 					className={styles.btn}
 					onClick={() => handleClick(`/${id}`)}
 				>
-					{'>'}
+					<ArrowRightIcon />
 				</button>
 			</div>
 			<div className={styles.body}>
 				<div className={styles.info}>
 					<span className={styles.number}>Ротор № 35к</span>
-					<span className={styles.date}>
-						{new Date(tagTime).toLocaleDateString()}
-					</span>
+					<div className={styles.date}>
+						<span>{new Date(tagTime).toLocaleDateString()}</span>
+					</div>
 					<button className={styles.change}>Изменить</button>
 				</div>
 				<div className={styles.main}>
@@ -59,7 +62,19 @@ export const Exhauster = ({ id }) => {
 							<span>{parseInt(daysToAlarm)} сут</span>
 						</div>
 					</div>
-					<img src='/images/exhaust_mini.png' alt='Эксгаустер' />
+					<Scheme />
+				</div>
+				<div className={styles.attention}>
+					<DropdownItem
+						text={'№7  п-к'}
+						temp={'#868686'}
+						vibr={'#E32112'}
+					/>
+					<DropdownItem
+						text={'№8  п-к'}
+						temp={'#868686'}
+						vibr={'#E32112'}
+					/>
 				</div>
 				<div className={styles.dropdown} ref={warningRef}>
 					<span
@@ -114,9 +129,6 @@ export const Exhauster = ({ id }) => {
 						</div>
 					</div>
 				</div>
-				<button className={styles.sendMsgBtn}>
-					Оправить сообщение в SAP
-				</button>
 			</div>
 		</section>
 	);

@@ -178,3 +178,8 @@ template {
 [hidden] {
 	display: none;
 }
+
+:root {
+	/* variables */
+	--base-color: #fab82e
+}
