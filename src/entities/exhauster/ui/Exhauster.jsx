@@ -37,7 +37,7 @@ export const Exhauster = ({ id }) => {
 				<span className={styles.name}>Эксгаустер У-171</span>
 				<button
 					className={styles.btn}
-					onClick={() => handleClick(`/exhausters/${id}`)}
+					onClick={() => handleClick(`/${id}`)}
 				>
 					{'>'}
 				</button>

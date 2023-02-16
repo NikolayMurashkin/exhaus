@@ -1,12 +1,35 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import Papa from 'papaparse';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { setDetails } from '../../app/slices/exhausterDetailsSlice';
 import { parseCsv } from '../../helpers/parseCsv';
 
 export const ExhausterDetails = ({ id }) => {
 	const dispatch = useDispatch();
+	useEffect(() => {
+		const newData = async () => {
+			const data = await parseCsv();
+			dispatch(
+				setDetails({
+					tagTime: data[data.length - 1][0],
+					vibr1Alarm: data[data.length - 1][1],
+					vibr2Alarm: data[data.length - 1][2],
+					temp1Alarm: data[data.length - 1][3],
+					temp2Alarm: data[data.length - 1][4],
+					timeAlarm: data[data.length - 1][5],
+					alarmName: data[data.length - 1][6],
+					daysToAlarm: data[data.length - 1][7],
+					allData: data,
+				})
+			);
+			return data;
+		};
+		newData();
+		setInterval(() => {
+			newData();
+		}, 60000);
+	}, []);
 	const {
 		tagTime,
 		vibr1Alarm,

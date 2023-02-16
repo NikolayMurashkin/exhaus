@@ -16,25 +16,15 @@ import { store } from './app/store/index';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Root />,
-		children: [
-			{
-				path: '/home',
-				element: <App />,
-			},
-			{
-				path: '/graphics',
-				element: <Graphics />,
-			},
-			{
-				path: '/exhausters',
-				element: <Exhausters />,
-			},
-			{
-				path: '/exhausters/:exhausterId',
-				element: <ExhausterDetails id={1} />,
-			},
-		],
+		element: <Exhausters />,
+	},
+	{
+		path: '/graphics',
+		element: <Graphics />,
+	},
+	{
+		path: '/:exhausterId',
+		element: <ExhausterDetails id={1} />,
 	},
 ]);
 

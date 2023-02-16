@@ -1,9 +1,7 @@
 {
 	"rewrites": [
-		{ "src": "/", "destination": "/" },
-		{ "src": "/home", "destination": "/" },
-		{ "src": "/graphics", "destination": "/" },
-		{ "src": "/exhausters", "destination": "/" },
-		{ "src": "/exhausters/:exhausterId", "destination": "/" }
+		{ "source": "/", "destination": "/" },
+		{ "source": "/graphics", "destination": "/" },
+		{ "source": "/:exhausterId", "destination": "/" }
 	]
 }
