@@ -1,0 +1,13 @@
+.wrapper {
+	display: flex;
+	a {
+		background-color: #5c5b5b;
+		color: #fff;
+		padding: 5px 15px;
+		text-decoration: none;
+		display: block;
+		max-width: 40px;
+		margin: 40px auto 0;
+	}
+	justify-content: space-between;
+}

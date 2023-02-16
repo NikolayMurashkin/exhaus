@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDetails } from '../app/slices/exhausterDetailsSlice';
 import { parseCsv } from '../helpers/parseCsv';
 import App from '../App';
+import styles from './Root.module.scss';
 
 export const Root = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		// setInterval(() => {}, 50000);
 		const newData = async () => {
 			const data = await parseCsv();
 			dispatch(
@@ -28,10 +28,13 @@ export const Root = () => {
 			return data;
 		};
 		newData();
+		setInterval(() => {
+			newData();
+		}, 60000);
 	}, []);
 	return (
-		<div>
-			<App />
+		<div className={styles.root}>
+			<Outlet />
 		</div>
 	);
 };

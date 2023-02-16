@@ -22,34 +22,21 @@ const router = createBrowserRouter([
 				path: '/home',
 				element: <App />,
 			},
+			{
+				path: '/graphics',
+				element: <Graphics />,
+			},
+			{
+				path: '/exhausters',
+				element: <Exhausters />,
+			},
+			{
+				path: '/exhausters/:exhausterId',
+				element: <ExhausterDetails id={1} />,
+			},
 		],
 	},
-	{
-		path: '/graphics',
-		element: <Graphics />,
-	},
-	{
-		path: '/exhausters',
-		element: <Exhausters />,
-	},
-	{
-		path: '/exhausters/:exhausterId',
-		element: <ExhausterDetails id={1} />,
-	},
-	{
-		path: '/exhauster-details',
-		element: <ExhausterDetails />,
-	},
 ]);
-
-// const router = createBrowserRouter(
-// 	createRoutesFromElements(
-// 		<Route path='/' element={<App />}>
-// 			<Route path='graphics' element={<Graphics />} />
-// 			<Route path='exhausters' element={<Exhausters />} />
-// 		</Route>
-// 	)
-// );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

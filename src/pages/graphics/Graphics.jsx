@@ -2,12 +2,16 @@ import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import { Link } from 'react-router-dom';
 
-import { LineChart } from '../../widgets/chart/ui/LineChart';
+import { LineChart, Sidebar } from '../../widgets/';
+import { useSelector } from 'react-redux';
+import styles from './Graphics.module.scss';
 
 export const Graphics = () => {
 	const [data, setData] = useState([]);
+	const { allData } = useSelector((state) => state.exhauster);
 
 	useEffect(() => {
+		console.log(allData);
 		// setInterval(() => {}, 50000);
 
 		const getData = async () => {
@@ -35,9 +39,12 @@ export const Graphics = () => {
 	}
 	if (data.length >= 100) {
 		return (
-			<div className='App'>
-				<LineChart parsedData={data} />
-				<Link to={'/'}>Назад</Link>
+			<div className={styles.wrapper}>
+				<Sidebar />
+				<div className={styles.chart}>
+					<LineChart parsedData={data} />
+					<Link to={'/home'}>Назад</Link>
+				</div>
 			</div>
 		);
 	}
