@@ -11,6 +11,11 @@
 		align-self: flex-end;
 		border-radius: 4px;
 		margin: 12px 0;
+		// pointer-events: none;
+		.toGraphicBtn {
+			cursor: pointer;
+			z-index: 50000;
+		}
 	}
 	.exhauster {
 		&__title {
@@ -32,6 +37,7 @@
 		}
 	}
 }
+
 .construct {
 	position: absolute;
 	top: 0px;

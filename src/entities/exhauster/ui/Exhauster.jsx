@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { setExhausterId } from '../../../app/slices/exhausterDetailsSlice';
+import { setExhauster } from '../../../app/slices/exhausterDetailsSlice';
 import styles from '../model/Exhauster.module.scss';
 import { ArrowRightIcon } from '../../../../public/icons/ArrowRightIcon';
 import { Scheme } from '../../../../public/icons/Scheme';
@@ -14,7 +14,7 @@ export const Exhauster = ({ id, exhausterName, rotorName }) => {
 
 	const dispatch = useDispatch();
 	const handleClick = (path) => {
-		dispatch(setExhausterId({ exhausterName }));
+		dispatch(setExhauster({ exhausterName, id }));
 		navigate(path);
 	};
 

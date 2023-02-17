@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { setDetails } from '../../app/slices/exhausterDetailsSlice';
-import { parseCsv } from '../../helpers/parseCsv';
 import { FilledButton } from '../../shared/ui/buttons/FilledButton/FilledButton';
 import { TextButton } from '../../shared/ui/buttons/textButton/TextButton';
 import { FileIcon } from '../../../public/icons/FileIcon';
@@ -15,30 +12,7 @@ import { FromKbc } from '../../../public/icons/FromKbc';
 import { ToSmokePipe } from '../../../public/icons/ToSmokePipe';
 
 export const ExhausterDetails = () => {
-	// const dispatch = useDispatch();
-	// useEffect(() => {
-	// 	const newData = async () => {
-	// 		const data = await parseCsv();
-	// 		dispatch(
-	// 			setDetails({
-	// 				tagTime: data[data.length - 1][0],
-	// 				vibr1Alarm: data[data.length - 1][1],
-	// 				vibr2Alarm: data[data.length - 1][2],
-	// 				temp1Alarm: data[data.length - 1][3],
-	// 				temp2Alarm: data[data.length - 1][4],
-	// 				timeAlarm: data[data.length - 1][5],
-	// 				alarmName: data[data.length - 1][6],
-	// 				daysToAlarm: data[data.length - 1][7],
-	// 				allData: data,
-	// 			})
-	// 		);
-	// 		return data;
-	// 	};
-	// 	newData();
-	// 	setInterval(() => {
-	// 		newData();
-	// 	}, 60000);
-	// }, []);
+	const navigate = useNavigate();
 	const {
 		tagTime,
 		vibr1Alarm,
@@ -48,20 +22,28 @@ export const ExhausterDetails = () => {
 		timeAlarm,
 		alarmName,
 		daysToAlarm,
-		exhausterId,
+		exhauster,
 	} = useSelector((state) => state.exhauster);
+	const navigateToGraphicHandle = () => {
+		navigate(`${exhauster.id}/graphic`);
+	};
 
 	if (tagTime) {
-		return (
+		retu rn (
 			<section className={styles.wrapper}>
 				<div className={styles.scheme}>
 					<FilledButton text={'Мнемосхема'} />
-					<TextButton text={'График'} />
+					<span
+						onClick={navigateToGraphicHandle}
+						className={styles.toGraphicBtn}
+					>
+						<TextButton text={'График'} />
+					</span>
 				</div>
 				<div className={styles.exhauster}>
 					<div className={styles.exhauster__title}>
 						<FileIcon />
-						{exhausterId}
+						{exhauster.label}
 					</div>
 					<div className={styles.exhauster__content}>
 						<div className={styles.bearings}>

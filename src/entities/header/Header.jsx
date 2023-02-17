@@ -25,7 +25,7 @@ export const Header = () => {
 		}
 	}, [location]);
 
-	const { exhausterId } = useSelector((state) => state.exhauster);
+	const { exhauster } = useSelector((state) => state.exhauster);
 
 	const hanldeNavigateHome = () => {
 		navigate('/');
@@ -49,7 +49,7 @@ export const Header = () => {
 						/ Прогнозная аналитика эксгаустера
 					</span>
 					<span className={styles.title_black}>
-						/ Состояние {exhausterId}
+						/ Состояние {exhauster.label}
 					</span>
 				</div>
 			)}

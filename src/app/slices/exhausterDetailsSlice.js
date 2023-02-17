@@ -10,7 +10,10 @@ const initialState = {
 	alarmName: '',
 	daysToAlarm: '',
 	allData: [],
-	exhausterId: '',
+	exhauster: {
+		id: '',
+		label: '',
+	},
 };
 
 const exhausterDetailsSlice = createSlice({
@@ -28,12 +31,13 @@ const exhausterDetailsSlice = createSlice({
 			state.daysToAlarm = action.payload.daysToAlarm;
 			state.allData = action.payload.allData;
 		},
-		setExhausterId: (state, action) => {
-			state.exhausterId = action.payload.exhausterName;
+		setExhauster: (state, action) => {
+			state.exhauster.label = action.payload.exhausterName;
+			state.exhauster.id = action.payload.id;
 		},
 	},
 });
 
-export const { setDetails, setExhausterId } = exhausterDetailsSlice.actions;
+export const { setDetails, setExhauster } = exhausterDetailsSlice.actions;
 
 export default exhausterDetailsSlice.reducer;
