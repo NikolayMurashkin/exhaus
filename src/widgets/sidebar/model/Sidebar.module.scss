@@ -34,6 +34,19 @@
 			width: 250px;
 			column-gap: 10px;
 			justify-content: space-between;
+			font-weight: 375;
+			font-size: 13px;
+			line-height: 15px;
+			color: #000000;
+			cursor: pointer;
+			padding: 5px;
+			max-height: 28px;
+			margin-bottom: 5px;
+			background: #fafafa;
+			border: 1px solid #efefef;
+			border-radius: 3px;
+			display: flex;
+			justify-content: space-between;
 			input,
 			span {
 				flex-grow: 1;
@@ -50,8 +63,19 @@
 		cursor: pointer;
 		padding: 5px;
 		max-height: 28px;
-		background-color: #dbdbdb;
 		margin-bottom: 5px;
+		background: #fafafa;
+		border: 1px solid #efefef;
+		border-radius: 3px;
+		display: flex;
+		justify-content: space-between;
+		.label {
+			font-weight: 375;
+			font-size: 13px;
+			line-height: 15px;
+			color: #000000;
+			margin: 0;
+		}
 	}
 	.count {
 		flex-grow: 0;

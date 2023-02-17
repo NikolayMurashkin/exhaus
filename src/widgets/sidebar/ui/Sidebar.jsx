@@ -1,14 +1,21 @@
 import { useRef } from 'react';
 
 import styles from '../model/Sidebar.module.scss';
+import { ArrowRightIcon } from '../../../../public/icons/ArrowRightIcon';
 
 export const Sidebar = () => {
 	const bearingsRef = useRef(null);
 	const oneBearingRef = useRef(null);
+	const twoBearingRef = useRef(null);
+	const sevenBearingRef = useRef(null);
+	const eightBearingRef = useRef(null);
+	const nineBearingRef = useRef(null);
 	const threeBearingRef = useRef(null);
 	const oilTankRef = useRef(null);
 	const mainEngineRef = useRef(null);
 	const coolerRef = useRef(null);
+	const reducerRef = useRef(null);
+	const gasRef = useRef(null);
 
 	const openDropdownHandler = (dropdownRef) => {
 		if (dropdownRef.current !== null) {
@@ -24,74 +31,335 @@ export const Sidebar = () => {
 			</div>
 			<ul className={styles.mainList}>
 				<li ref={bearingsRef} className={styles.mainListItem}>
-					<h4
+					<div
 						className={styles.title}
 						onClick={() => openDropdownHandler(bearingsRef)}
 					>
-						Подпишпники
-					</h4>
+						<ArrowRightIcon />
+						<h4 className={styles.label}>Подпишпники</h4>
+					</div>
 					<ul className={styles.secondaryList}>
 						<li className={styles.mainListItem} ref={oneBearingRef}>
-							<h5
+							<div
 								className={styles.title}
 								onClick={() =>
 									openDropdownHandler(oneBearingRef)
 								}
 							>
-								1 ПС
-							</h5>
+								<ArrowRightIcon />
+								<h5 className={styles.label}>1 ПС</h5>
+							</div>
 							<ul className={styles.secondaryList}>
-								<li className={styles.listItem}>
-									<input type='checkbox' name='' id='' />
-									<span>T, °C</span>
-									<span className={styles.count}>0000</span>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>T, °C</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
 								</li>
-								<li className={styles.listItem}>
-									<input type='checkbox' name='' id='' />
-									<span>Верт, мм/с</span>
-									<span className={styles.count}>0000</span>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Верт, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
 								</li>
-								<li className={styles.listItem}>
-									<input type='checkbox' name='' id='' />
-									<span>Гориз, мм/c</span>
-									<span className={styles.count}>0000</span>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Гориз, мм/c</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
 								</li>
-								<li className={styles.listItem}>
-									<input type='checkbox' name='' id='' />
-									<span>Ось, мм/с</span>
-									<span className={styles.count}>0000</span>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Ось, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+							</ul>
+						</li>
+						<li className={styles.mainListItem} ref={twoBearingRef}>
+							<div
+								className={styles.title}
+								onClick={() =>
+									openDropdownHandler(twoBearingRef)
+								}
+							>
+								<ArrowRightIcon />
+								<h5 className={styles.label}>2 ПС</h5>
+							</div>
+							<ul className={styles.secondaryList}>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>T, °C</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Верт, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Гориз, мм/c</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Ось, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
 								</li>
 							</ul>
 						</li>
 						<li
 							className={styles.mainListItem}
-							ref={threeBearingRef}
+							ref={sevenBearingRef}
 						>
-							<h5
+							<div
 								className={styles.title}
 								onClick={() =>
-									openDropdownHandler(threeBearingRef)
+									openDropdownHandler(sevenBearingRef)
 								}
 							>
-								3 ПС
-							</h5>
+								<ArrowRightIcon />
+								<h5 className={styles.label}>7 ПС</h5>
+							</div>
 							<ul className={styles.secondaryList}>
-								<li className={styles.listItem}>
-									<input type='checkbox' name='' id='' />
-									<span>T, °C</span>
-									<span className={styles.count}>0000</span>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>T, °C</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Верт, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Гориз, мм/c</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Ось, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+							</ul>
+						</li>
+						<li
+							className={styles.mainListItem}
+							ref={eightBearingRef}
+						>
+							<div
+								className={styles.title}
+								onClick={() =>
+									openDropdownHandler(eightBearingRef)
+								}
+							>
+								<ArrowRightIcon />
+								<h5 className={styles.label}>8 ПС</h5>
+							</div>
+							<ul className={styles.secondaryList}>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>T, °C</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Верт, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Гориз, мм/c</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Ось, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+							</ul>
+						</li>
+						<li
+							className={styles.mainListItem}
+							ref={nineBearingRef}
+						>
+							<div
+								className={styles.title}
+								onClick={() =>
+									openDropdownHandler(nineBearingRef)
+								}
+							>
+								<ArrowRightIcon />
+								<h5 className={styles.label}>9 ПС</h5>
+							</div>
+							<ul className={styles.secondaryList}>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>T, °C</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Верт, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Гориз, мм/c</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
+								</li>
+								<li>
+									<label className={styles.listItem}>
+										<input type='checkbox' />
+										<span>Ось, мм/с</span>
+										<span className={styles.count}>
+											0000
+										</span>
+									</label>
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
+				<li ref={reducerRef} className={styles.mainListItem}>
+					<div
+						className={styles.title}
+						onClick={() => openDropdownHandler(reducerRef)}
+					>
+						<ArrowRightIcon />
+						<h4 className={styles.label}>Редуктор</h4>
+					</div>
+					<ul className={styles.secondaryList}>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>T на 3 ПС, °С</span>
+							<span className={styles.count}>0000</span>
+						</label>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>T на 4 ПС, °С</span>
+							<span className={styles.count}>0000</span>
+						</label>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>T на 5 ПС, °С</span>
+							<span className={styles.count}>0000</span>
+						</label>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>T на 6 ПС, °С</span>
+							<span className={styles.count}>0000</span>
+						</label>
+					</ul>
+				</li>
+				<li ref={gasRef} className={styles.mainListItem}>
+					<div
+						className={styles.title}
+						onClick={() => openDropdownHandler(gasRef)}
+					>
+						<ArrowRightIcon />
+						<h4 className={styles.label}>Газовый коллектор</h4>
+					</div>
+					<ul className={styles.secondaryList}>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>T газа, °С</span>
+							<span className={styles.count}>0000</span>
+						</label>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>Разряжение, мм.в.ст</span>
+							<span className={styles.count}>0000</span>
+						</label>
+						<label className={styles.listItem}>
+							<input type='checkbox' />
+							<span>Уровень пыли, мг/м3</span>
+							<span className={styles.count}>0000</span>
+						</label>
+					</ul>
+				</li>
 				<li className={styles.mainListItem} ref={oilTankRef}>
-					<h4
+					<div
 						className={styles.title}
 						onClick={() => openDropdownHandler(oilTankRef)}
 					>
-						Маслобак
-					</h4>
+						<ArrowRightIcon />
+						<h5 className={styles.label}>Маслобак</h5>
+					</div>
 					<ul className={styles.secondaryList}>
 						<li className={styles.listItem}>
 							<input type='checkbox' name='' id='' />
@@ -108,12 +376,13 @@ export const Sidebar = () => {
 					</ul>
 				</li>
 				<li className={styles.mainListItem} ref={mainEngineRef}>
-					<h4
+					<div
 						className={styles.title}
 						onClick={() => openDropdownHandler(mainEngineRef)}
 					>
-						Главный привод
-					</h4>
+						<ArrowRightIcon />
+						<h5 className={styles.label}>Главный привод</h5>
+					</div>
 					<ul className={styles.secondaryList}>
 						<li className={styles.listItem}>
 							<input type='checkbox' name='' id='' />
@@ -138,12 +407,13 @@ export const Sidebar = () => {
 					</ul>
 				</li>
 				<li className={styles.mainListItem} ref={coolerRef}>
-					<h4
+					<div
 						className={styles.title}
 						onClick={() => openDropdownHandler(coolerRef)}
 					>
-						Охладитель
-					</h4>
+						<ArrowRightIcon />
+						<h5 className={styles.label}>Охладитель</h5>
+					</div>
 					<ul className={styles.secondaryList}>
 						<li className={styles.listItem}>
 							<input type='checkbox' name='' id='' />

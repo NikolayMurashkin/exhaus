@@ -29,7 +29,7 @@ export const ExhausterDetails = () => {
 	};
 
 	if (tagTime) {
-		retu rn (
+		return (
 			<section className={styles.wrapper}>
 				<div className={styles.scheme}>
 					<FilledButton text={'Мнемосхема'} />
