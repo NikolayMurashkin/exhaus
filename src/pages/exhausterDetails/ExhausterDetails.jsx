@@ -241,6 +241,24 @@ export const ExhausterDetails = () => {
 							<div className={styles.cooler__two}>-233 °С</div>
 							<div className={styles.cooler__three}>-233 °С</div>
 						</div>
+						<div className={styles.legend}>
+							<div className={styles.legend__item}>
+								<span
+									className={styles.legend__item_warning}
+								></span>
+								<span className={styles.legend__item_label}>
+									Предупреждение
+								</span>
+							</div>
+							<div className={styles.legend__item}>
+								<span
+									className={styles.legend__item_danger}
+								></span>
+								<span className={styles.legend__item_label}>
+									Опасность
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
