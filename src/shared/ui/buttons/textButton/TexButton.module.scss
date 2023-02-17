@@ -2,12 +2,10 @@
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 14px;
-	background: var(--base-color);
-	border-radius: 4px;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
 	align-items: center;
-	padding: 5px 12px;
+	text-align: center;
+	color: var(--base-color);
+	background: none;
 	border: none;
 }

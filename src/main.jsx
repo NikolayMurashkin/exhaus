@@ -13,6 +13,8 @@ import { Graphics, Exhausters, ExhausterDetails } from './pages/index';
 import './index.css';
 import { store } from './app/store/index';
 
+
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/:exhausterId',
-				element: <ExhausterDetails id={1} />,
+				element: <ExhausterDetails />,
 			},
 		],
 	},

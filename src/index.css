@@ -1,4 +1,6 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
@@ -34,6 +36,7 @@ a {
 
 abbr[title] {
 	border-bottom: none;
+
 	text-decoration: underline;
 	text-decoration: underline dotted;
 }
@@ -100,6 +103,7 @@ button,
 [type="reset"],
 [type="submit"] {
 	-webkit-appearance: button;
+	appearance: button;
 }
 
 button::-moz-focus-inner,
@@ -151,6 +155,7 @@ textarea {
 
 [type="search"] {
 	-webkit-appearance: textfield;
+	appearance: textfield;
 	outline-offset: -2px;
 }
 
@@ -161,6 +166,10 @@ textarea {
 ::-webkit-file-upload-button {
 	-webkit-appearance: button;
 	font: inherit;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 details {
@@ -182,4 +191,13 @@ template {
 :root {
 	/* variables */
 	--base-color: #fab82e
+}
+
+body,
+html {
+	font-family: 'Rubik', sans-serif;
+}
+
+body {
+	/* min-height: 100vh; */
 }

@@ -1,15 +1,20 @@
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { setExhausterId } from '../../../app/slices/exhausterDetailsSlice';
 import styles from '../model/Exhauster.module.scss';
 import { ArrowRightIcon } from '../../../../public/icons/ArrowRightIcon';
 import { Scheme } from '../../../../public/icons/Scheme';
 import { DropdownItem } from '../../../shared/ui/dropdownItem/DropdownItem';
 
-export const Exhauster = ({ id }) => {
+export const Exhauster = ({ id, exhausterName, rotorName }) => {
 	const navigate = useNavigate();
+
+	const dispatch = useDispatch();
 	const handleClick = (path) => {
+		dispatch(setExhausterId({ exhausterName }));
 		navigate(path);
 	};
 
@@ -26,6 +31,7 @@ export const Exhauster = ({ id }) => {
 
 	const warningRef = useRef(null);
 	const allBearingsRef = useRef(null);
+
 	const openDropdownHandler = (dropdownRef) => {
 		if (dropdownRef.current !== null) {
 			dropdownRef.current.classList.toggle(styles.opened);
@@ -37,7 +43,7 @@ export const Exhauster = ({ id }) => {
 		<section className={styles.exhauster}>
 			<div className={styles.title}>
 				<span className={styles.circle}></span>
-				<h4 className={styles.name}>Эксгаустер У-171</h4>
+				<h4 className={styles.name}>{exhausterName}</h4>
 				<button
 					className={styles.btn}
 					onClick={() => handleClick(`/${id}`)}
@@ -47,7 +53,7 @@ export const Exhauster = ({ id }) => {
 			</div>
 			<div className={styles.body}>
 				<div className={styles.info}>
-					<span className={styles.number}>Ротор № 35к</span>
+					<span className={styles.number}>{rotorName}</span>
 					<div className={styles.date}>
 						<span>{new Date(tagTime).toLocaleDateString()}</span>
 					</div>
@@ -64,69 +70,76 @@ export const Exhauster = ({ id }) => {
 					</div>
 					<Scheme />
 				</div>
-				<div className={styles.attention}>
-					<DropdownItem
-						text={'№7  п-к'}
-						temp={'#868686'}
-						vibr={'#E32112'}
-					/>
-					<DropdownItem
-						text={'№8  п-к'}
-						temp={'#868686'}
-						vibr={'#E32112'}
-					/>
-				</div>
-				<div className={styles.dropdown} ref={warningRef}>
-					<span
-						onClick={() => openDropdownHandler(warningRef)}
-						className={styles.dropdown__title}
-					>
-						{'>'} Предупреждение
-					</span>
-					<div>
-						<span>№7 п-к</span>
-						<img src='/icons/temp.png' alt='Температура' />
-						<img src='/icons/vibr.png' alt='Вибрация' />
+				<div className={styles.bearingsInfo}>
+					<div className={styles.attention}>
+						<DropdownItem
+							text={'№1 п-к'}
+							temp={'#868686'}
+							vibr={'#E32112'}
+						/>
+						<DropdownItem
+							text={'№3 п-к'}
+							temp={'#F69112'}
+							vibr={'#E32112'}
+						/>
 					</div>
-				</div>
-				<div className={styles.dropdown} ref={allBearingsRef}>
-					<span
-						onClick={() => openDropdownHandler(allBearingsRef)}
-						className={styles.dropdown__title}
-					>
-						{'>'} Все подшипники
-					</span>
-					<div>
-						<div>
-							<span>№1 п-к</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/vibr.png' alt='Вибрация' />
+					<div className={styles.dropdown} ref={warningRef}>
+						<div
+							onClick={() => openDropdownHandler(warningRef)}
+							className={styles.dropdown__title}
+						>
+							<span className={styles.icon}>
+								<ArrowRightIcon />
+							</span>
+							Предупреждение
 						</div>
-						<div>
-							<span>№2 п-к</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/vibr.png' alt='Вибрация' />
+						<DropdownItem
+							text={'№7 п-к'}
+							temp={'#868686'}
+							vibr={'#F69112'}
+						/>
+					</div>
+					<div className={styles.dropdown} ref={allBearingsRef}>
+						<div
+							onClick={() => openDropdownHandler(allBearingsRef)}
+							className={styles.dropdown__title}
+						>
+							<span className={styles.icon}>
+								<ArrowRightIcon />
+							</span>
+							Все подшипники
 						</div>
-						<div>
-							<span>№3 п-к</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/vibr.png' alt='Вибрация' />
-						</div>
-						<div>
-							<span>№4 п-к</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/vibr.png' alt='Вибрация' />
-						</div>
-						<div>
-							<span>№5 п-к</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/vibr.png' alt='Вибрация' />
-						</div>
-						<div>
-							<span>Уровень масла</span>
-							<img src='/icons/temp.png' alt='Температура' />
-							<img src='/icons/oil.png' alt='Вибрация' />
-						</div>
+						<DropdownItem
+							text={'№2 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem
+							text={'№4 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem
+							text={'№5 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem
+							text={'№6 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem
+							text={'№8 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem
+							text={'№9 п-к'}
+							temp={'#868686'}
+							vibr={'#868686'}
+						/>
+						<DropdownItem text={'Уровень масла'} oil={'#868686'} />
 					</div>
 				</div>
 			</div>

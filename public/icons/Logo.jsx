@@ -6,6 +6,7 @@ export const Logo = (props) => (
 		height={19}
 		fill='none'
 		xmlns='http://www.w3.org/2000/svg'
+		style={{ cursor: 'pointer' }}
 		{...props}
 	>
 		<path d='M17.413.525H0v3.57h17.413V.526Z' fill='#FCB53B' />
