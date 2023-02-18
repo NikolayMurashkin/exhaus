@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import App from './App';
 import { Root } from './pages/Root';
 import { Graphics, Exhausters, ExhausterDetails } from './pages/index';
 import './index.css';
