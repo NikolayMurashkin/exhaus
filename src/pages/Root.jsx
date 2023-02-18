@@ -13,24 +13,24 @@ export const Root = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		// const newData = async () => {
-		// 	const data = await parseCsv();
-		// 	dispatch(
-		// 		setDetails({
-		// 			tagTime: data[data.length - 1][0],
-		// 			vibr1Alarm: data[data.length - 1][1],
-		// 			vibr2Alarm: data[data.length - 1][2],
-		// 			temp1Alarm: data[data.length - 1][3],
-		// 			temp2Alarm: data[data.length - 1][4],
-		// 			timeAlarm: data[data.length - 1][5],
-		// 			alarmName: data[data.length - 1][6],
-		// 			daysToAlarm: data[data.length - 1][7],
-		// 			allData: data,
-		// 		})
-		// 	);
-		// 	return data;
-		// };
-		// newData();
+		const newData = async () => {
+			const data = await parseCsv();
+			dispatch(
+				setDetails({
+					tagTime: data[data.length - 1][0],
+					vibr1Alarm: data[data.length - 1][1],
+					vibr2Alarm: data[data.length - 1][2],
+					temp1Alarm: data[data.length - 1][3],
+					temp2Alarm: data[data.length - 1][4],
+					timeAlarm: data[data.length - 1][5],
+					alarmName: data[data.length - 1][6],
+					daysToAlarm: data[data.length - 1][7],
+					allData: data,
+				})
+			);
+			return data;
+		};
+		newData();
 		const parsedExhData = async () => {
 			const data = await parseExhData('../data/Exh3_Temp7.csv');
 			dispatch(
