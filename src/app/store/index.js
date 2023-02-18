@@ -7,6 +7,7 @@ import exhTwoSlice from '../slices/exhTwoSlice';
 import exhFourSlice from '../slices/exhFourSlice';
 import exhFiveSlice from '../slices/exhFiveSlice';
 import exhSixSlice from '../slices/exhSixSlice';
+import allExhaustersSlice from '../slices/allExhaustersSlice';
 
 export const store = configureStore({
 	reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
 		exhFour: exhFourSlice,
 		exhFive: exhFiveSlice,
 		exhSix: exhSixSlice,
+		allExhausters: allExhaustersSlice,
 	},
 });
 

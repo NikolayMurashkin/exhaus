@@ -38,7 +38,6 @@
 			}
 			.calendar {
 				input {
-					
 				}
 			}
 		}
@@ -53,5 +52,39 @@
 	}
 	.content {
 		display: flex;
+		flex-direction: column;
+		&__header {
+			display: flex;
+			justify-content: space-between;
+			padding: 7px 14px;
+			background: #fafafa;
+			border: 1px solid #eaeaea;
+			border-radius: 5px 5px 0px 0px;
+			&_label {
+				display: flex;
+				column-gap: 10px;
+				align-items: center;
+			}
+			&_button {
+				padding: 5px 12px;
+				background: #fafafa;
+				border: 1px solid #eaeaea;
+				border-radius: 4px;
+				font-weight: 375;
+				font-size: 13px;
+				line-height: 15px;
+				display: flex;
+				align-items: center;
+				text-align: center;
+				color: #6e6e6d;
+			}
+		}
+		&__body {
+			display: flex;
+			padding: 20px;
+			border-radius: 0px 0px 5px 5px;
+			background: #fff;
+			align-items: flex-start;
+		}
 	}
 }

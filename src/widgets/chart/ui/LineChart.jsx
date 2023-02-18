@@ -1,96 +1,90 @@
-import { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
 import {
-	Chart as ChartJs,
-	LineElement,
-	CategoryScale,
-	LinearScale,
-	PointElement,
-	Title,
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
 	Tooltip,
 	Legend,
-} from 'chart.js';
+	Line,
+} from 'recharts';
 
 import styles from '../model/LineChart.module.scss';
 
-ChartJs.register(
-	LineElement,
-	CategoryScale,
-	LinearScale,
-	PointElement,
-	Title,
-	Tooltip,
-	Legend
-);
-
-export const LineChart = ({ parsedData }) => {
-	const [dates, setDates] = useState([]);
-	const [values, setValues] = useState([]);
-
-	const transformData = () => {
-		const transformedData = parsedData.map((item) => {
-			const separatedData = item[0]
-				.replaceAll("'", '')
-				.replaceAll('[', '')
-				.replaceAll(']', '')
-				.split(',');
-			const date = separatedData[0];
-			// setDates((prevState) => [...prevState, transformedData[0]]);
-			const value = separatedData[1];
-			// console.log(JSON.parse(item));
-			// const date = item.split(',');
-			return { date, value };
-		});
-		const datesArr = transformedData.map((item) => item.date);
-		const valuesArr = transformedData.map((item) => item.value);
-		return { datesArr, valuesArr };
-	};
-
-	useEffect(() => {
-		const { datesArr } = transformData();
-		const { valuesArr } = transformData();
-		setDates(datesArr);
-		setValues(valuesArr);
-	}, []);
-
-	const data = {
-		// labels: ['Mon', 'Tue', 'Wed'],
-		labels: dates,
-		datasets: [
+export const LineCharts = () => {
+	const allExhausters = useSelector((state) => state.allExhausters);
+	if (allExhausters) {
+		const myData = allExhausters[0].exhausterThree.sevenBearing.time.map(
+			(item, i) => {
+				return {
+					name: allExhausters[0].exhausterThree.sevenBearing.time[i],
+					temp: +allExhausters[0].exhausterThree.sevenBearing.temp[i],
+				};
+			}
+		);
+		console.log(myData);
+		const data = [
 			{
-				label: 'Легенда индикатора №1',
-				// data: [0.15, 0.12, 0.23],
-				data: values,
-				backgroundColor: 'red',
-				borderColor: 'gold',
-				pointBorderColor: 'yellow',
-				fill: true,
-				tension: 0.1,
+				name: 'Page A',
+				uv: 4000,
+				pv: 2400,
+				amt: 2400,
 			},
-		],
-	};
+			{
+				name: 'Page B',
+				uv: 3000,
+				pv: 1398,
+				amt: 2210,
+			},
+			{
+				name: 'Page C',
+				uv: 2000,
+				pv: 9800,
+				amt: 2290,
+			},
+			{
+				name: 'Page D',
+				uv: 2780,
+				pv: 3908,
+				amt: 2000,
+			},
+			{
+				name: 'Page E',
+				uv: 1890,
+				pv: 4800,
+				amt: 2181,
+			},
+			{
+				name: 'Page F',
+				uv: 2390,
+				pv: 3800,
+				amt: 2500,
+			},
+			{
+				name: 'Page G',
+				uv: 3490,
+				pv: 4300,
+				amt: 2100,
+			},
+		];
+		console.log(data);
 
-	const options = {
-		plugins: {
-			legend: {
-				position: 'top',
-			},
-			title: {
-				display: true,
-				text: 'Название таблицы',
-			},
-		},
-		scales: {
-			y: {
-				min: 0,
-				max: 0.2,
-			},
-		},
-	};
-
-	return (
-		<div className={styles.wrapper}>
-			<Line data={data} options={options}></Line>
-		</div>
-	);
+		return (
+			<div className={styles.wrapper}>
+				<LineChart
+					width={730}
+					height={250}
+					data={myData}
+					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+				>
+					<CartesianGrid strokeDasharray='3 3' />
+					<XAxis dataKey='name' />
+					<YAxis dataKey='temp' />
+					<Tooltip />
+					<Legend />
+					<Line type='monotone' dataKey='temp' stroke='#8884d8' activeDot={{r: 8}}/>
+				</LineChart>
+			</div>
+		);
+	}
 };

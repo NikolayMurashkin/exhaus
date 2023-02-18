@@ -1,25 +1,44 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DateRangePicker } from 'rsuite';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { LineChart, Sidebar } from '../../widgets/';
-import { useSelector } from 'react-redux';
+import { LineCharts, Sidebar } from '../../widgets/';
 import styles from './Graphics.module.scss';
 import { FilledButton } from '../../shared/ui/buttons/FilledButton/FilledButton';
 import { TextButton } from '../../shared/ui/buttons/textButton/TextButton';
+import { FileIcon } from '../../../public/icons/FileIcon';
+import { parseExhData } from '../../helpers/parseExhData';
+import { setExhausterThree } from '../../app/slices/allExhaustersSlice';
 
 export const Graphics = () => {
 	const [period, setPeriod] = useState('');
 	const [dateTime, setDateTime] = useState('');
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const { allData, exhauster } = useSelector((state) => state.exhauster);
+	const [exhausterThree] = useSelector((state) => state.allExhausters);
+	useEffect(() => {
+		const parsedExhData = async () => {
+			const data = await parseExhData('../../data/Exh3_Temp7.csv');
+			dispatch(
+				setExhausterThree({
+					time: data.map((item) => item[0]),
+					temp: data.map((item) => item[1]),
+				})
+			);
+			return data;
+		};
+		console.log(exhausterThree);
+		parsedExhData();
+	}, []);
 
-	const navigate = useNavigate();
 	const navigateToSchemeHandle = () => {
 		navigate(`/${exhauster.id}`);
 	};
-	console.log(period);
-	console.log(dateTime);
+	// console.log(period);
+	// console.log(dateTime);
 
 	if (allData.length < 0) {
 		return <p>Загрузка...</p>;
@@ -44,7 +63,6 @@ export const Graphics = () => {
 						</select>
 						<DateRangePicker
 							placeholder={'Выберите диапазон дат'}
-							
 							className={styles.calendar}
 							onChange={setDateTime}
 						/>
@@ -60,9 +78,20 @@ export const Graphics = () => {
 					</div>
 				</div>
 				<div className={styles.content}>
-					<Sidebar />
-					<div className={styles.chart}>
-						<LineChart parsedData={allData} />
+					<div className={styles.content__header}>
+						<div className={styles.content__header_label}>
+							<FileIcon />
+							{exhauster.label}
+						</div>
+						<button className={styles.content__header_button}>
+							Сохранить в Excel
+						</button>
+					</div>
+					<div className={styles.content__body}>
+						<Sidebar />
+						<div className={styles.chart}>
+							<LineCharts />
+						</div>
 					</div>
 				</div>
 			</section>

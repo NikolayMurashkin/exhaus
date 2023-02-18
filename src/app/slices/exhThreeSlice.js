@@ -9,7 +9,7 @@ const initialState = [
 	},
 	{
 		name: '2',
-		temp: '22',
+		temp: '',
 		vibr: '2',
 		time: '',
 	},
