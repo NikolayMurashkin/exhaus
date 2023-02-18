@@ -11,10 +11,12 @@
 	&_gray {
 		color: #8c8c8c;
 		cursor: pointer;
+		flex: 1 0 auto;
 	}
 	&_black {
 		color: #000;
 		margin-left: 10px;
+		flex: 1 0 auto;
 	}
 }
 .controls {

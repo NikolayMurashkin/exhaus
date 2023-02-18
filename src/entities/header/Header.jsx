@@ -41,7 +41,7 @@ export const Header = () => {
 				</span>
 			)}
 			{location.pathname !== '/' && (
-				<div>
+				<div className={styles.title_black}>
 					<span
 						className={styles.title_gray}
 						onClick={hanldeNavigateHome}
