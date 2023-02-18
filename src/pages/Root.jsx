@@ -47,9 +47,9 @@ export const Root = () => {
 			console.log('Обновление данных');
 			parsedExhData();
 		}, 6000);
-		// return () => {
-		// 	clearInterval(interval);
-		// };
+		return () => {
+			clearInterval(interval);
+		};
 	}, []);
 	return (
 		<div className={styles.root}>
