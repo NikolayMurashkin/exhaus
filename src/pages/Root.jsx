@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setDetails } from '../app/slices/exhausterDetailsSlice';
 import { parseCsv } from '../helpers/parseCsv';
-import App from '../App';
+import { parseExhData } from '../helpers/parseExhData';
+import { setBearingSeven } from '../app/slices/exhThreeSlice';
 import styles from './Root.module.scss';
 import { Header } from '../entities/header/Header';
 
 export const Root = () => {
 	const dispatch = useDispatch();
+	const { exhauster } = useSelector((state) => state.exhauster);
+
 	useEffect(() => {
 		const newData = async () => {
 			const data = await parseCsv();
@@ -29,6 +32,18 @@ export const Root = () => {
 			return data;
 		};
 		newData();
+		const parsedExhData = async () => {
+			const data = await parseExhData('../data/Exh3_Temp7.csv');
+			dispatch(
+				setBearingSeven({
+					time: data[data.length - 1][0],
+					temp: data[data.length - 1][1],
+					vibr: '23.42',
+				})
+			);
+			return data;
+		};
+		parsedExhData();
 		setInterval(() => {
 			newData();
 		}, 60000);

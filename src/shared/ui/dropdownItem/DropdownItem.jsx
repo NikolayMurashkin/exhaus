@@ -14,8 +14,8 @@ export const DropdownItem = ({ text, temp, vibr, oil }) => {
 			{temp ? (
 				<span
 					className={cx('icon', {
-						red: temp === '#E32112',
-						orange: temp === '#F69112',
+						danger: temp == '#eb5835',
+						warning: temp == '#f69112',
 					})}
 				>
 					T
@@ -25,8 +25,8 @@ export const DropdownItem = ({ text, temp, vibr, oil }) => {
 			{vibr ? (
 				<span
 					className={cx('icon', {
-						red: vibr === '#E32112',
-						orange: vibr === '#F69112',
+						danger: vibr == '#eb5835',
+						warning: vibr == '#f69112',
 					})}
 				>
 					V
@@ -36,8 +36,8 @@ export const DropdownItem = ({ text, temp, vibr, oil }) => {
 			{oil ? (
 				<span
 					className={cx('icon', {
-						red: oil === '#E32112',
-						orange: oil === '#F69112',
+						danger: oil == '#eb5835',
+						warning: oil == '#f69112',
 					})}
 				>
 					L

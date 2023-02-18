@@ -10,25 +10,17 @@ import { MainConstruct } from '../../../public/icons/MainConstruct';
 import { Pipe } from '../../../public/icons/Pipe';
 import { FromKbc } from '../../../public/icons/FromKbc';
 import { ToSmokePipe } from '../../../public/icons/ToSmokePipe';
+import { PipeLocker } from '../../../public/icons/PipeLocker';
 
 export const ExhausterDetails = () => {
 	const navigate = useNavigate();
-	const {
-		tagTime,
-		vibr1Alarm,
-		vibr2Alarm,
-		temp1Alarm,
-		temp2Alarm,
-		timeAlarm,
-		alarmName,
-		daysToAlarm,
-		exhauster,
-	} = useSelector((state) => state.exhauster);
+	const { tagTime, exhauster } = useSelector((state) => state.exhauster);
+	const bearings = useSelector((state) => state.exhThree);
 	const navigateToGraphicHandle = () => {
 		navigate(`${exhauster.id}/graphic`);
 	};
 
-	if (tagTime) {
+	if (tagTime && bearings) {
 		return (
 			<section className={styles.wrapper}>
 				<div className={styles.scheme}>
@@ -48,35 +40,39 @@ export const ExhausterDetails = () => {
 					<div className={styles.exhauster__content}>
 						<div className={styles.bearings}>
 							<div className={styles.nine}>
-								<Bearing title={'9 ПС'} />
+								<Bearing title={'9 ПС'} data={bearings[8]} />
 							</div>
 							<div className={styles.eight}>
-								<Bearing title={'8 ПС'} />
+								<Bearing title={'8 ПС'} data={bearings[7]} />
 							</div>
 							<div className={styles.seven}>
-								<Bearing title={'7 ПС'} />
+								<Bearing title={'7 ПС'} data={bearings[6]} />
 							</div>
 							<div className={styles.six}>
-								<Bearing title={'6 ПС'} />
+								<Bearing title={'6 ПС'} data={bearings[5]} />
 							</div>
 							<div className={styles.five}>
-								<Bearing title={'5 ПС'} />
+								<Bearing title={'5 ПС'} data={bearings[4]} />
 							</div>
 							<div className={styles.four}>
-								<Bearing title={'4 ПС'} />
+								<Bearing title={'4 ПС'} data={bearings[3]} />
 							</div>
 							<div className={styles.three}>
-								<Bearing title={'3 ПС'} />
+								<Bearing title={'3 ПС'} data={bearings[2]} />
 							</div>
 							<div className={styles.two}>
-								<Bearing title={'2 ПС'} />
+								<Bearing title={'2 ПС'} data={bearings[1]} />
 							</div>
 							<div className={styles.one}>
-								<Bearing title={'1 ПС'} />
+								<Bearing title={'1 ПС'} data={bearings[0]} />
 							</div>
 						</div>
 						<div className={styles.pipe}>
 							<Pipe />
+						</div>
+						<div className={styles.pipeLocker}>
+							<PipeLocker />
+							<span className={styles.pipeLocker__label}>50%</span>
 						</div>
 						<div className={styles.fromKbc}>
 							<div className={styles.fromKbc__data}>

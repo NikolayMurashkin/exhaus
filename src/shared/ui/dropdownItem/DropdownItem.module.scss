@@ -31,11 +31,12 @@
 		margin-right: 7px;
 	}
 }
-.red {
-	background: #fcdbcb;
-	border: 1px solid #eb5835;
-}
-.orange {
+
+.warning {
 	background: #fef1db;
 	border: 1px solid #f69112;
+}
+.danger {
+	background: #fcdbcb;
+	border: 1px solid #eb5835;
 }

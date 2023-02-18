@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { Exhauster } from '../../entities';
 import styles from './Exhausters.module.scss';
 import { FileIcon } from '../../../public/icons/FileIcon';
@@ -6,8 +8,8 @@ import { VibrationIcon } from '../../../public/icons/VibrationIcon';
 import { OilIcon } from '../../../public/icons/OilIcon';
 
 export const Exhausters = () => {
+	const exhThree = useSelector((state) => state.exhThree);
 
-	
 	return (
 		<section className={styles.wrapper}>
 			<div className={styles.header}>
@@ -49,7 +51,7 @@ export const Exhausters = () => {
 				</div>
 			</div>
 			<div className={styles.body}>
-				<div className={styles.body__item}>
+				{/* <div className={styles.body__item}>
 					<h2 className={styles.body__item_title}>агломашина №1</h2>
 					<div className={styles.exhausters}>
 						<Exhauster
@@ -63,7 +65,7 @@ export const Exhausters = () => {
 							rotorName={'Ротор № 47'}
 						/>
 					</div>
-				</div>
+				</div> */}
 				<div className={styles.body__item}>
 					<h2 className={styles.body__item_title}>агломашина №2</h2>
 					<div className={styles.exhausters}>
@@ -71,15 +73,16 @@ export const Exhausters = () => {
 							id={3}
 							exhausterName={'Эксгаустер Ф-171'}
 							rotorName={'Ротор № 37'}
+							data={exhThree}
 						/>
-						<Exhauster
+						{/* <Exhauster
 							id={4}
 							exhausterName={'Эксгаустер Ф-172'}
 							rotorName={'Ротор № 32'}
-						/>
+						/> */}
 					</div>
 				</div>
-				<div className={styles.body__item}>
+				{/* <div className={styles.body__item}>
 					<h2 className={styles.body__item_title}>агломашина №3</h2>
 					<div className={styles.exhausters}>
 						<Exhauster
@@ -93,7 +96,7 @@ export const Exhausters = () => {
 							rotorName={'Ротор № 22к'}
 						/>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);
