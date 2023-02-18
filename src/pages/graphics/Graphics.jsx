@@ -17,7 +17,7 @@ export const Graphics = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const { allData, exhauster } = useSelector((state) => state.exhauster);
+	const { exhauster } = useSelector((state) => state.exhauster);
 	const [exhausterThree] = useSelector((state) => state.allExhausters);
 	useEffect(() => {
 		const parsedExhData = async () => {
@@ -37,13 +37,11 @@ export const Graphics = () => {
 	const navigateToSchemeHandle = () => {
 		navigate(`/${exhauster.id}`);
 	};
-	// console.log(period);
-	// console.log(dateTime);
 
-	if (allData.length < 0) {
+	if (!exhausterThree) {
 		return <p>Загрузка...</p>;
 	}
-	if (allData.length > 0) {
+	if (exhausterThree) {
 		return (
 			<section className={styles.wrapper}>
 				<div className={styles.header}>
@@ -97,5 +95,4 @@ export const Graphics = () => {
 			</section>
 		);
 	}
-	return <div>Loading...</div>;
 };

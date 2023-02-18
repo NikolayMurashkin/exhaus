@@ -14,13 +14,13 @@ import { PipeLocker } from '../../../public/icons/PipeLocker';
 
 export const ExhausterDetails = () => {
 	const navigate = useNavigate();
-	const { tagTime, exhauster } = useSelector((state) => state.exhauster);
+	const { exhauster } = useSelector((state) => state.exhauster);
 	const bearings = useSelector((state) => state.exhThree);
 	const navigateToGraphicHandle = () => {
 		navigate(`${exhauster.id}/graphic`);
 	};
 
-	if (tagTime && bearings) {
+	if (bearings) {
 		return (
 			<section className={styles.wrapper}>
 				<div className={styles.scheme}>
